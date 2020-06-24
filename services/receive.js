@@ -10,11 +10,8 @@
 
 "use strict";
 
-const Curation = require("./curation"),
-  Order = require("./order"),
+const Order = require("./order"),
   Response = require("./response"),
-  Care = require("./care"),
-  Survey = require("./survey"),
   GraphAPi = require("./graph-api"),
   i18n = require("../i18n.config"),
   db = require('./db').db,
