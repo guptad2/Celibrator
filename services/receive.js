@@ -93,7 +93,7 @@ module.exports = class Receive {
         })
       );
     } else if (message.includes("#")) {
-      response = this.genQuickReply(i18n.__("order.occasion"), [
+      response = Response.genQuickReply(i18n.__("order.occasion"), [
         {
           title: i18n.__("order.birthday"),
           payload: "ORDER_BIRTHDAY"
@@ -120,7 +120,10 @@ module.exports = class Receive {
 
     // Get the attachment
     let attachment = this.webhookEvent.message.attachments[0];
-    console.log("Received attachment:", `${attachment} for ${this.user.psid}`);
+    console.log(
+      "Received attachment:",
+      `${JSON.stringify(attachment)} for ${this.user.psid}`
+    );
 
     putObject("test", attachment);
 
