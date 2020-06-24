@@ -142,6 +142,6 @@ module.exports = class Response {
       }
     ]);
 
-    return [welcome, guide, curation];
+    return [welcome, curation];
   }
 };

@@ -14,10 +14,8 @@ const Order = require("./order"),
   Response = require("./response"),
   GraphAPi = require("./graph-api"),
   i18n = require("../i18n.config"),
-  db = require('./db').db,
-  putObject = require('./s3');
-;
-
+  db = require("./db").db,
+  putObject = require("./s3");
 module.exports = class Receive {
   constructor(user, webhookEvent) {
     this.user = user;
@@ -86,20 +84,25 @@ module.exports = class Receive {
     ) {
       response = Response.genNuxMessage(this.user);
     } else if (Number(message)) {
-      const name = 'manesh';
-      const occasion = 'birthday';
+      const name = "manesh";
+      const occasion = "birthday";
       response = Response.genText(
         i18n.__("order.status", {
           name: name,
           occasion: occasion
-        }));
+        })
+      );
     } else if (message.includes("#")) {
-      response = [Response.genText(i18n.__("order.init")), Response.genText(i18n.__("order.code"))];
+      response = [
+        Response.genText(i18n.__("order.init")),
+        Response.genText(i18n.__("order.code"))
+      ];
     } else {
       response = Response.genText(
-          i18n.__("fallback.any", {
-            message: this.webhookEvent.message.text
-          }));
+        i18n.__("fallback.any", {
+          message: this.webhookEvent.message.text
+        })
+      );
     }
 
     return response;
@@ -113,11 +116,9 @@ module.exports = class Receive {
     let attachment = this.webhookEvent.message.attachments[0];
     console.log("Received attachment:", `${attachment} for ${this.user.psid}`);
 
-    putObject('test', attachment);
+    putObject("test", attachment);
 
-    response = Response.genText(
-      i18n.__("fallback.attachment")
-    );
+    response = Response.genText(i18n.__("fallback.attachment"));
 
     return response;
   }
@@ -153,7 +154,6 @@ module.exports = class Receive {
   }
 
   handlePayload(payload) {
-    
     console.log("Received Payload:", `${payload} for ${this.user.psid}`);
 
     // Log CTA event in FBA
@@ -179,9 +179,12 @@ module.exports = class Receive {
     return response;
   }
 
-  handlePrivateReply(type,object_id) {
-    let welcomeMessage = i18n.__("get_started.welcome") + " " +
-      i18n.__("get_started.guidance") + ". " +
+  handlePrivateReply(type, object_id) {
+    let welcomeMessage =
+      i18n.__("get_started.welcome") +
+      " " +
+      i18n.__("get_started.guidance") +
+      ". " +
       i18n.__("get_started.help");
 
     let response = Response.genQuickReply(welcomeMessage, [
