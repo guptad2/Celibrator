@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  *
  * Messenger For CeleBot
- * https://developers.facebook.com/docs/messenger-platform/getting-started/sample-apps/original-coast-clothing
  */
 
 "use strict";
@@ -41,6 +40,7 @@ module.exports = class Order {
         ];
         return response;
 
+      // Add video for the google drive link here for the code
       case "ORDER_RESULT":
         response = Response.genText("video_url");
         return response;
