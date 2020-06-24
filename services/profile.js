@@ -33,7 +33,7 @@ module.exports = class Profile {
       ...this.getGreeting(),
       ...this.getPersistentMenu()
     };
-
+    console.log(JSON.stringify(profilePayload));
     GraphAPi.callMessengerProfileAPI(profilePayload);
   }
 

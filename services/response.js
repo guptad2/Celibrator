@@ -131,6 +131,8 @@ module.exports = class Response {
       })
     );
 
+    console.log
+
     let guide = this.genText(i18n.__("get_started.guidace"));
 
     let curation = this.genQuickReply(i18n.__("get_started.help"), [
