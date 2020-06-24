@@ -1,6 +1,6 @@
 {
   "profile": {
-    "greeting": "Welcome to Celibrator {{user_first_name}}! Click get started to enjoy our sample automated messaging experience"
+    "greeting": "Welcome to CeleBot {{user_first_name}}! Click get started to enjoy our sample automated messaging experience"
   },
   "menu": {
     "start_over": "Start over",
@@ -9,7 +9,7 @@
     "get": "Get Video"
   },
   "get_started": {
-    "welcome": "Hi {{userFirstName}}! Welcome to Original Coast Clothing where you'll find styles for every occasion.",
+    "welcome": "Hi {{userFirstName}}! Welcome to CeleBot where you'll find styles for every occasion.",
     "help": "Do you want to submit a video for an existing order or start a new one?"
   },
   "order": {

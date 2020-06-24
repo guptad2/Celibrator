@@ -1,6 +1,6 @@
-# Original Coast Clothing Messenger Bot
+# CeleBot Messenger Bot
 
-Original Coast Clothing (OC) is a fictional clothing brand created to showcase key features of the Messenger Platform. OC leverages key features to deliver a great customer experience. Using this demo as inspiration, you can create a delightful messaging experience that leverages both automation and live customer support. We are also providing the open source code of the app and a guide to deploy the experience on your local environment or remote server.
+CeleBot (OC) is a fictional clothing brand created to showcase key features of the Messenger Platform. OC leverages key features to deliver a great customer experience. Using this demo as inspiration, you can create a delightful messaging experience that leverages both automation and live customer support. We are also providing the open source code of the app and a guide to deploy the experience on your local environment or remote server.
 
 [Access the Messenger experience](https://m.me/OriginalCoastClothing?ref=GITHUB)
 
@@ -139,6 +139,6 @@ git push heroku master
   Send a message to your Page from Facebook or in Messenger, if your webhook receives an event, you have fully set up your app! Voilà!
 
 ## License
-Sample Messenger App Original Coast Clothing is BSD licensed, as found in the LICENSE file.
+Sample Messenger App CeleBot is BSD licensed, as found in the LICENSE file.
 
 See the [CONTRIBUTING](CONTRIBUTING.md) file for how to help out.
