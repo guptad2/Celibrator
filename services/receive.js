@@ -14,7 +14,7 @@ const Order = require("./order"),
   Response = require("./response"),
   GraphAPi = require("./graph-api"),
   i18n = require("../i18n.config"),
-  db = require("./db").db,
+  db = require("./db"),
   putObject = require("./s3").putObject;
 module.exports = class Receive {
   constructor(user, webhookEvent) {
@@ -125,7 +125,9 @@ module.exports = class Receive {
       `${JSON.stringify(attachment)} for ${this.user.psid}`
     );
 
-    putObject("test", attachment);
+    const videoUrl = attachment.payload;
+
+    db.insertEntry(1234, videoUrl, "manesh", "birthday");
 
     response = Response.genText(i18n.__("fallback.attachment"));
 

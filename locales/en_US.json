@@ -16,7 +16,7 @@
     "occasion": "Is it a birthday or graduation?",
     "age": "How old are they turning?",
     "number": "Sure, please write the 4 digit code given to you",
-    "status": "The order is for {{name}}'s {{occasion}}",
+    "status": "The order is for {{name}}'s {{occasion}}, submit the video to confirm, retype confirmation if you think this is a mistak",
     "init": "Your order has been initiated forward the message below to your friends",
     "code": "Forward this message",
     "birthday": "birthday",

@@ -139,6 +139,10 @@ module.exports = class Response {
       {
         title: i18n.__("menu.existing"),
         payload: "EXISTING_ORDER"
+      },
+      {
+        title: i18n.__("menu.get"),
+        payload: "ORDER_RESULT"
       }
     ]);
 

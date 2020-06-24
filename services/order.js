@@ -12,8 +12,7 @@
 
 // Imports dependencies
 const Response = require("./response"),
-  i18n = require("../i18n.config"),
-  config = require("./config");
+  i18n = require("../i18n.config");
 
 module.exports = class Order {
   static handlePayload(payload) {
@@ -22,20 +21,23 @@ module.exports = class Order {
     switch (payload) {
       case "NEW_ORDER":
         response = [Response.genText(i18n.__("order.name"))];
-        break;
+        return response;
 
       case "EXISTING_ORDER":
         response = Response.genText(i18n.__("order.number"));
-        break;
+        return response;
 
       case "ORDER_BIRTHDAY":
         response = Response.genText(i18n.__("order.number"));
-        break;
+        return response;
+
       case "ORDER_GRADUATION":
         response = Response.genText(i18n.__("order.init"));
-        break;
-    }
+        return response;
 
-    return response;
+      case "ORDER_RESULT":
+        response = Response.genText("video_url");
+        return response;
+    }
   }
 };

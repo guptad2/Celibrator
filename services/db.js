@@ -51,19 +51,30 @@ const initDb = async () => {
   await db.query(createDataTable);
 };
 
-async function insertEntry(cursor, celibrationID, urls, person, occasion) {
-  await cursor.query(
+async function insertEntry(celibrationID, urls, person, occasion) {
+  await db.query(
     `INSERT INTO data VALUES(${celibrationID},  ${urls}, ${person}, ${occasion});`
   );
 }
 
-function genCode() {
-  return Math.floor(1000 + Math.random() * 9000);
+async function getRows() {
+  const result = await db.query(`SELECT * FROM data`);
+  console.log(JSON.stringify(result));
+  return result;
+}
+
+async function getURLS(celibrationID) {
+  const result = getRows(celibrationID);
+
+  let urls;
+  result[0].map(res => (urls = urls + ", " + res));
+  return urls;
 }
 
 module.exports = {
   db,
   initDb,
   insertEntry,
-  genCode
+  getRows,
+  getURLS
 };
