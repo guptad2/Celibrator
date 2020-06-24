@@ -16,7 +16,10 @@ const Curation = require("./curation"),
   Care = require("./care"),
   Survey = require("./survey"),
   GraphAPi = require("./graph-api"),
-  i18n = require("../i18n.config");
+  i18n = require("../i18n.config"),
+  db = require('./db').db,
+  putObject = require('./s3');
+;
 
 module.exports = class Receive {
   constructor(user, webhookEvent) {
@@ -87,11 +90,6 @@ module.exports = class Receive {
       response = Response.genNuxMessage(this.user);
     } else if (Number(message)) {
       response = Order.handlePayload("ORDER_NUMBER");
-    } else if (message.includes("#")) {
-      response = Survey.handlePayload("CSAT_SUGGESTION");
-    } else if (message.includes(i18n.__("care.help").toLowerCase())) {
-      let care = new Care(this.user, this.webhookEvent);
-      response = care.handlePayload("CARE_HELP");
     } else {
       response = [
         Response.genText(
@@ -99,15 +97,14 @@ module.exports = class Receive {
             message: this.webhookEvent.message.text
           })
         ),
-        Response.genText(i18n.__("get_started.guidance")),
-        Response.genQuickReply(i18n.__("get_started.help"), [
+        Response.genQuickReply(i18n.__("get_started.guidance"), [
           {
             title: i18n.__("menu.suggestion"),
             payload: "CURATION"
           },
           {
             title: i18n.__("menu.help"),
-            payload: "CARE_HELP"
+            payload: "SUBMIT_VIDEO"
           }
         ])
       ];
@@ -124,16 +121,11 @@ module.exports = class Receive {
     let attachment = this.webhookEvent.message.attachments[0];
     console.log("Received attachment:", `${attachment} for ${this.user.psid}`);
 
-    response = Response.genQuickReply(i18n.__("fallback.attachment"), [
-      {
-        title: i18n.__("menu.help"),
-        payload: "CARE_HELP"
-      },
-      {
-        title: i18n.__("menu.start_over"),
-        payload: "GET_STARTED"
-      }
-    ]);
+    putObject('test', attachment);
+
+    response = Response.genText(
+      i18n.__("fallback.attachment")
+    );
 
     return response;
   }
@@ -169,6 +161,7 @@ module.exports = class Receive {
   }
 
   handlePayload(payload) {
+    
     console.log("Received Payload:", `${payload} for ${this.user.psid}`);
 
     // Log CTA event in FBA
@@ -186,16 +179,10 @@ module.exports = class Receive {
     } else if (payload.includes("CURATION") || payload.includes("COUPON")) {
       let curation = new Curation(this.user, this.webhookEvent);
       response = curation.handlePayload(payload);
-    } else if (payload.includes("CARE")) {
-      let care = new Care(this.user, this.webhookEvent);
-      response = care.handlePayload(payload);
     } else if (payload.includes("ORDER")) {
       response = Order.handlePayload(payload);
-    } else if (payload.includes("CSAT")) {
-      response = Survey.handlePayload(payload);
     } else if (payload.includes("CHAT-PLUGIN")) {
       response = [
-        Response.genText(i18n.__("chat_plugin.prompt")),
         Response.genText(i18n.__("get_started.guidance")),
         Response.genQuickReply(i18n.__("get_started.help"), [
           {

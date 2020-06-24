@@ -41,11 +41,9 @@ module.exports = class Order {
         response = Response.genText(i18n.__("order.number"));
         break;
 
+      // TODO: Reply with "the order is for celebration by {USER}"      
       case "ORDER_NUMBER":
-        response = Response.genImageTemplate(
-          `${config.appUrl}/order.png`,
-          i18n.__("order.status")
-        );
+        response = Response.genImageTemplate(i18n.__("order.status"));
         break;
 
       case "LINK_ORDER":
