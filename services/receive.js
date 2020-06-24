@@ -15,7 +15,7 @@ const Order = require("./order"),
   GraphAPi = require("./graph-api"),
   i18n = require("../i18n.config"),
   db = require("./db").db,
-  putObject = require("./s3");
+  putObject = require("./s3").putObject;
 module.exports = class Receive {
   constructor(user, webhookEvent) {
     this.user = user;
