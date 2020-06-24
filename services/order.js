@@ -21,11 +21,18 @@ module.exports = class Order {
 
     switch (payload) {
       case "NEW_ORDER":
-        response = Response.genText(i18n.__("order.name"));
+        response = [Response.genText(i18n.__("order.name"))];
         break;
 
       case "EXISTING_ORDER":
         response = Response.genText(i18n.__("order.number"));
+        break;
+
+      case "ORDER_BIRTHDAY":
+        response = Response.genText(i18n.__("order.number"));
+        break;
+      case "ORDER_GRADUATION":
+        response = Response.genText(i18n.__("order.init"));
         break;
     }
 

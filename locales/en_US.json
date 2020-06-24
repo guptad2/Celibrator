@@ -18,7 +18,9 @@
     "number": "Sure, please write the 4 digit code given to you",
     "status": "The order is for {{name}}'s {{occasion}}",
     "init": "Your order has been initiated forward the message below to your friends",
-    "code": "Forward this message"
+    "code": "Forward this message",
+    "birthday": "birthday",
+    "graduation": "graduation"
   },
   "fallback": {
     "any": "Sorry, but I don’t recognize \"{{message}}\".",

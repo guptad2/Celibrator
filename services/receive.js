@@ -93,10 +93,16 @@ module.exports = class Receive {
         })
       );
     } else if (message.includes("#")) {
-      response = [
-        Response.genText(i18n.__("order.init")),
-        Response.genText(i18n.__("order.code"))
-      ];
+      response = this.genQuickReply(i18n.__("order.occasion"), [
+        {
+          title: i18n.__("order.birthday"),
+          payload: "ORDER_BIRTHDAY"
+        },
+        {
+          title: i18n.__("order.graduation"),
+          payload: "ORDER_GRADUATION"
+        }
+      ]);
     } else {
       response = Response.genText(
         i18n.__("fallback.any", {
@@ -175,6 +181,12 @@ module.exports = class Receive {
         text: `This is a default postback message for payload: ${payload}!`
       };
     }
+
+    else if () {
+      response = [
+        Response.genText(i18n.__("order.init")),
+        Response.genText(i18n.__("order.code"))
+      ];
 
     return response;
   }
