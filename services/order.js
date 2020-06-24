@@ -28,11 +28,17 @@ module.exports = class Order {
         return response;
 
       case "ORDER_BIRTHDAY":
-        response = Response.genText(i18n.__("order.number"));
+        response = [
+          Response.genText(i18n.__("order.init")),
+          Response.genText(i18n.__("order.code"))
+        ];
         return response;
 
       case "ORDER_GRADUATION":
-        response = Response.genText(i18n.__("order.init"));
+        response = [
+          Response.genText(i18n.__("order.init")),
+          Response.genText(i18n.__("order.code"))
+        ];
         return response;
 
       case "ORDER_RESULT":
