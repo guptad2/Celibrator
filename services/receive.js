@@ -80,7 +80,8 @@ module.exports = class Receive {
 
     if (
       (greeting && greeting.confidence > 0.8) ||
-      message.includes("start over")
+      message.includes("start over") ||
+      message.includes("menu")
     ) {
       response = Response.genNuxMessage(this.user);
     } else if (Number(message)) {
