@@ -5,7 +5,8 @@
   "menu": {
     "start_over": "Start over",
     "existing": "Existing order",
-    "new": "New order"
+    "new": "New order",
+    "get": "Get Video"
   },
   "get_started": {
     "welcome": "Hi {{userFirstName}}! Welcome to Original Coast Clothing where you'll find styles for every occasion.",
@@ -24,6 +25,6 @@
   },
   "fallback": {
     "any": "Sorry, but I don’t recognize \"{{message}}\".",
-    "attachment": "Thanks for sending this attachment"
+    "attachment": "Thanks for sending this attachment, let the person who gave you the code know!"
   }
 }
