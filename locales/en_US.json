@@ -1,27 +1,24 @@
 {
   "profile": {
-    "greeting": "Welcome to Original Coast Clothing {{user_first_name}}! Click get started to enjoy our sample automated messaging experience. If you want to build a similar one visit https://fb.me/get-sample-oc"
+    "greeting": "Welcome to Celibrator {{user_first_name}}! Click get started to enjoy our sample automated messaging experience"
   },
   "menu": {
-    "support": "Customer Support",
-    "order": "Order updates",
-    "help": "Talk to an agent",
-    "suggestion": "Outfit suggestions",
-    "shop": "Shop now",
-    "start_over": "Start over"
+    "start_over": "Start over",
+    "existing": "Existing order",
+    "new": "New order"
   },
   "get_started": {
     "welcome": "Hi {{userFirstName}}! Welcome to Original Coast Clothing where you'll find styles for every occasion.",
-    "guidance": "Are you looking submit a video for an existing order or start a new one?"
+    "help": "Do you want to submit a video for an existing order or start a new one?"
   },
   "order": {
-    "prompt": "We'll be happy to help you. Select from the following",
-    "search": "Search by order number",
-    "account": "Link my Account",
-    "dialog": "Account linking dialog",
-    "searching": "Searching for your last order...",
-    "number": "Sure, please write the order number",
-    "status": "The order is for celebration by Deepanshu"
+    "name": "Please enter the name for whom you are creating this video preceded by a hash",
+    "occasion": "Is it a birthday or graduation?",
+    "age": "How old are they turning?",
+    "number": "Sure, please write the 4 digit code given to you",
+    "status": "The order is for {{name}}'s {{occasion}}",
+    "init": "Your order has been initiated forward the message below to your friends",
+    "code": "Forward this message"
   },
   "fallback": {
     "any": "Sorry, but I don’t recognize \"{{message}}\".",

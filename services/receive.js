@@ -89,7 +89,15 @@ module.exports = class Receive {
     ) {
       response = Response.genNuxMessage(this.user);
     } else if (Number(message)) {
-      response = Order.handlePayload("ORDER_NUMBER");
+      const name = 'manesh';
+      const occasion = 'birthday';
+      response = Response.genText(
+        i18n.__("order.status", {
+          name: name,
+          occasion: occasion
+        }));
+    } else if (message.includes("#")) {
+      response = [Response.genText(i18n.__("order.init")), Response.genText(i18n.__("order.code"))];
     } else {
       response = Response.genText(
           i18n.__("fallback.any", {
