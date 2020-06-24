@@ -131,6 +131,8 @@ module.exports = class Response {
       })
     );
 
+    let guide = this.genText(i18n.__("get_started.guidace"));
+
     let curation = this.genQuickReply(i18n.__("get_started.help"), [
       {
         title: i18n.__("menu.new"),
@@ -146,6 +148,6 @@ module.exports = class Response {
       }
     ]);
 
-    return [welcome, curation];
+    return [welcome, guide, curation];
   }
 };

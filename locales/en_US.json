@@ -10,6 +10,7 @@
   },
   "get_started": {
     "welcome": "Hi {{userFirstName}}! Welcome to CeleBot where you'll find styles for every occasion.",
+    "guidance": "At any time, use the menu below to navigate through the features",
     "help": "Do you want to submit a video for an existing order or start a new one?"
   },
   "order": {
