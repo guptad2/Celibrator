@@ -23,7 +23,7 @@ module.exports = class Order {
       case "NEW_ORDER":
         response = Response.genText(i18n.__("order.name"));
         break;
-      
+
       case "EXISTING_ORDER":
         response = Response.genText(i18n.__("order.number"));
         break;

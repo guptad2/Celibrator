@@ -12,7 +12,7 @@
 
 // Use dotenv to read .env vars into Node
 require("dotenv").config();
-const initDb = require('./db').initDb;
+const initDb = require("./db").initDb;
 
 initDb();
 
