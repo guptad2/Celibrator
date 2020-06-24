@@ -14,13 +14,6 @@
     "welcome": "Hi {{userFirstName}}! Welcome to Original Coast Clothing where you'll find styles for every occasion.",
     "guidance": "Are you looking submit a video for an existing order or start a new one?"
   },
-  "leadgen": {
-    "promo": "Hi {{userFirstName}}, finding great outfits is now easier and more convenient.",
-    "title": "50% Coupon",
-    "subtitle": "Here is your coupon",
-    "apply": "Apply discount",
-    "coupon": "Added your coupon to this thread, you can now check out the discounted summer collection"
-  },
   "order": {
     "prompt": "We'll be happy to help you. Select from the following",
     "search": "Search by order number",
@@ -29,9 +22,6 @@
     "searching": "Searching for your last order...",
     "number": "Sure, please write the order number",
     "status": "The order is for celebration by Deepanshu"
-  },
-  "chat_plugin": {
-    "prompt": "Thanks for visiting our store, be sure to check out all the great styles we have on the summer section."
   },
   "fallback": {
     "any": "Sorry, but I don’t recognize \"{{message}}\".",

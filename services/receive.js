@@ -91,23 +91,10 @@ module.exports = class Receive {
     } else if (Number(message)) {
       response = Order.handlePayload("ORDER_NUMBER");
     } else {
-      response = [
-        Response.genText(
+      response = Response.genText(
           i18n.__("fallback.any", {
             message: this.webhookEvent.message.text
-          })
-        ),
-        Response.genQuickReply(i18n.__("get_started.guidance"), [
-          {
-            title: i18n.__("menu.suggestion"),
-            payload: "CURATION"
-          },
-          {
-            title: i18n.__("menu.help"),
-            payload: "SUBMIT_VIDEO"
-          }
-        ])
-      ];
+          }));
     }
 
     return response;
@@ -176,29 +163,8 @@ module.exports = class Receive {
       payload === "GITHUB"
     ) {
       response = Response.genNuxMessage(this.user);
-    } else if (payload.includes("CURATION") || payload.includes("COUPON")) {
-      let curation = new Curation(this.user, this.webhookEvent);
-      response = curation.handlePayload(payload);
     } else if (payload.includes("ORDER")) {
       response = Order.handlePayload(payload);
-    } else if (payload.includes("CHAT-PLUGIN")) {
-      response = [
-        Response.genText(i18n.__("get_started.guidance")),
-        Response.genQuickReply(i18n.__("get_started.help"), [
-          {
-            title: i18n.__("care.order"),
-            payload: "CARE_ORDER"
-          },
-          {
-            title: i18n.__("care.billing"),
-            payload: "CARE_BILLING"
-          },
-          {
-            title: i18n.__("care.other"),
-            payload: "CARE_OTHER"
-          }
-        ])
-      ];
     } else {
       response = {
         text: `This is a default postback message for payload: ${payload}!`
