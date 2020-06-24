@@ -182,12 +182,6 @@ module.exports = class Receive {
       };
     }
 
-    else if () {
-      response = [
-        Response.genText(i18n.__("order.init")),
-        Response.genText(i18n.__("order.code"))
-      ];
-
     return response;
   }
 
