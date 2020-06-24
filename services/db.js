@@ -55,8 +55,8 @@ const initDb = async () => {
   await db.query(createDataTable);
 };
 
-async function insertEntry(cursor, userID, entry, iv) {
-  await cursor.query(`INSERT INTO data VALUES(${}, , );`);
+async function insertEntry(cursor, celibrationID, urls, person, occasion) {
+  await cursor.query(`INSERT INTO data VALUES(${celibrationID},  ${urls}, ${person}, ${occasion});`);
 }
 
 function genCode() {
